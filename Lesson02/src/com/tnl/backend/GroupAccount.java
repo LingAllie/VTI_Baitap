@@ -37,6 +37,11 @@ public class GroupAccount {
 	public void setJoinDate(Date joinDate) {
 		this.joinDate = joinDate;
 	}
+
+	@Override
+	public String toString() {
+		return "GroupAccount [group=" + group + ", account=" + account + ", joinDate=" + joinDate + "]";
+	}
 	
 	
 }
