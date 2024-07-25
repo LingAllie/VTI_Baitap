@@ -146,7 +146,7 @@ public class Assignment2_Ex2 {
 		}
 		
 		// b
-		System.out.printf("b) \nCác ước số là nguyên tố của %d: { ", n);
+		System.out.printf("\nb) Các ước số là nguyên tố của %d: { ", n);
 		for(int i = 1; i <= n; i++) {
 			if (n % i == 0 && checkPrime(i) == true) {
 				System.out.print(i + " ");
@@ -162,27 +162,27 @@ public class Assignment2_Ex2 {
 	public static void main(String[] args) {
 		
 		
-//		// Ex2.4
-//		Scanner sc = new Scanner(System.in);
-//		System.out.println("Nhập số nguyên bất kỳ");
-//		int n = sc.nextInt();
-//		tinhTong(int n);
+		// Ex2.4
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Nhập số nguyên bất kỳ");
+		int n = sc.nextInt();
+		tinhTong(n);
 		
 		// Ex2.5
-//		thuaSoPrimes(100000);
+		thuaSoPrimes(100000);
 
-//		// Ex2.6
-//		lietKePrimesByN(17);
+		// Ex2.6
+		lietKePrimesByN(17);
 		
-//		// Ex2.7
-//		lietKeFirstPrimes(15);
+		// Ex2.7
+		lietKeFirstPrimes(15);
 		
-//		// Ex2.8
-//		timUclnBcnn(20, 54);
+		// Ex2.8
+		timUclnBcnn(20, 54);
 		
 		
 		// Ex2.15
-//		tongVaPhanTich();
+		tongVaPhantich();
 		
 		// Ex2.16
 		ex2_16();
