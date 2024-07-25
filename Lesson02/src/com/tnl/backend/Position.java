@@ -1,12 +1,17 @@
 package com.tnl.backend;
 
-public class Position {
+public enum Position {
+	Dev(1, "Dev"),
+    Test(2, "Test"),
+    ScrumMaster(3, "Scrum Master"),
+    PM(4, "PM");
+	
 	int positionId;
 	String positionName;
 	
-	public Position () {}
+	private Position () {}
 
-	public Position(int positionId, String positionName) {
+	private Position(int positionId, String positionName) {
 		
 		this.positionId = positionId;
 		this.positionName = positionName;

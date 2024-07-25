@@ -8,13 +8,13 @@ public class Account {
 	String username;
 	String fullName;
 	Department department;
-	Position position;
+	Main.Position position;
 	Date createDate;
 	
 	public Account () {}
 	
 	public Account(int accountId, String email, String username, String fullName, Department department,
-			Position position, Date createDate) {
+			Main.Position position, Date createDate) {
 		
 		this.accountId = accountId;
 		this.email = email;
@@ -24,5 +24,6 @@ public class Account {
 		this.position = position;
 		this.createDate = createDate;
 	}
+
 	
 }
