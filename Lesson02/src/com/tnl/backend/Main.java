@@ -605,7 +605,7 @@ public class Main {
 		
 		// Question 2
 	/*
-		System.out.println("Please enter 3 real number: ");
+		System.out.println("Please enter 2 real number: ");
 		System.out.println("a = ");
 		float d = sc.nextFloat();
 		System.out.println("b = ");
