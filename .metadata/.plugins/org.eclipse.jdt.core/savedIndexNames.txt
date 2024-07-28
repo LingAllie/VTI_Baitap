@@ -5,4 +5,3 @@ INDEX VERSION 1.134+D:\VTI_Baitap\.metadata\.plugins\org.eclipse.jdt.core
 3018842131.index
 560665684.index
 1233371370.index
-2811077062.index

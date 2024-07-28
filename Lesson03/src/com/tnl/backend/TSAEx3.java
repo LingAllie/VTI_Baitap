@@ -455,7 +455,7 @@ public class TSAEx3 {
 
     public static void question4_15() {
     	
-    	String input = ScannerUtils.inputString("Input a string", "Input is empty, please enter again !");
+    	String input = ScannerUtils.inputString("Input a sentence", "Input is empty, please enter again !");
     	String[] inputArray = input.split("\\s+");
     	for (String s : inputArray) {
     		s.trim();
