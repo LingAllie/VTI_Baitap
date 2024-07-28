@@ -693,7 +693,7 @@ public class Main {
 	*/
 		
 		// Question 9
-//		addAccIntoGroup(accounts, groups);
+		addAccIntoGroup(accounts, groups);
 		
 		// Question 10
 	/*

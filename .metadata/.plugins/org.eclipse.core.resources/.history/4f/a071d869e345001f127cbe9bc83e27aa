@@ -1,5 +1,0 @@
-package tnl.lession01.com;
-
-public enum Gender {
-	MALE, FEMALE, UNKNOWN;
-}
