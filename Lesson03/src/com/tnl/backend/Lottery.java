@@ -44,10 +44,14 @@ public class Lottery {
             System.out.print("Nhập số muốn đặt cược có 2 chữ số: ");
             if (sc.hasNextInt()) {
                 soDatCuoc = sc.nextInt();
-                if (soDatCuoc >= 10 && soDatCuoc <= 99) {
-                    break;
+                if (soDatCuoc < 99) {
+                	break;
                 } else {
-                    System.out.println("Vui lòng nhập số có 2 chữ số.");
+                	while (soDatCuoc > 99) {
+                		System.out.print("Vui lòng nhập số nhỏ hơn 100: ");
+                    	soDatCuoc = sc.nextInt();
+                	}
+                	break;
                 }
             } else {
                 System.out.println("Vui lòng nhập một số nguyên.");
