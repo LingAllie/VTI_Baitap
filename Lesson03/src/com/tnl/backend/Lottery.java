@@ -66,7 +66,11 @@ public class Lottery {
                 if (loaiDatCuoc == 1 || loaiDatCuoc == 2) {
                     break;
                 } else {
-                    System.out.println("Vui lòng chọn 1 trong 2 loại cược: 1: đề | 2: lô.");
+                    while(loaiDatCuoc != 1 && loaiDatCuoc != 2) {
+                    	System.out.print("Vui lòng lựa chọn 1 trong 2 loại cược... 1: đề | 2: lô: ");
+                    	loaiDatCuoc = sc.nextInt();
+                    }
+                    break;
                 }
             } else {
                 System.out.println("Vui lòng nhập một số nguyên.");
