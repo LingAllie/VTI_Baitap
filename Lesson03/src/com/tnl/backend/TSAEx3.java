@@ -3,7 +3,7 @@ package com.tnl.backend;
 import java.time.LocalDate;
 import java.util.*;
 
-import com.vti.backend.ScannerUtils;
+import com.vti.utils.ScannerUtils;
 
 public class TSAEx3 {
 
