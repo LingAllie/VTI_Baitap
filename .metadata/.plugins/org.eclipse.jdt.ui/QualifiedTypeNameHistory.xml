@@ -8,4 +8,7 @@
     <fullyQualifiedTypeName name="java.util.Arrays"/>
     <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="com.vti.backend.ScannerUtils"/>
+    <fullyQualifiedTypeName name="com.tnl.utils.ScannerUtils"/>
+    <fullyQualifiedTypeName name="com.tnl.entity.Department"/>
+    <fullyQualifiedTypeName name="java.time.LocalDate"/>
 </qualifiedTypeNameHistroy>
