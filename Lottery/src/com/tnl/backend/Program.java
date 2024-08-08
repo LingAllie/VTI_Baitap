@@ -57,7 +57,7 @@ public class Program {
 //	        );
 		
 		LotteryResult result = new LotteryResult();
-		result.setNgayQT("24/07/2024");
+		result.setNgayQT("07/08/2024");
 		result.setGiaiDB("123456");
 		result.setGiaiNhat("09876");
 		result.setGiaiNhi("72364");
