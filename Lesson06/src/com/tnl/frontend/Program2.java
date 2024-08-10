@@ -1,20 +1,35 @@
 package com.tnl.frontend;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 public class Program2 {
 
 	public static void main(String[] args) throws Exception {
-		float result = devide(7, 0);
 		
-		System.out.println(result);
-	}
-
-	private static float devide(int a, int b) throws Exception {
-		
-//		return a / b;
 		try {
-			return a / b;
+			int age = inputAge();
+			System.out.println("Your age is " + age);
+			
 		} catch (Exception e) {
-			throw new Exception("Cannot devide 0");
+			e.printStackTrace();
+		}
+
+	}
+	
+	public static int inputAge() throws Exception {
+		try {
+			Scanner sc = new Scanner(System.in);
+			System.out.print("Please input your age: ");
+			int age = sc.nextInt();
+			
+			sc.close();
+			
+			return age;
+		} catch (Exception e) {
+			throw new Exception("Please input a number as int");
 		}
 	}
+
+
 }

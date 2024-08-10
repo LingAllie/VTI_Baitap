@@ -9,8 +9,9 @@
     <fullyQualifiedTypeName name="com.vti.backend.ScannerUtils"/>
     <fullyQualifiedTypeName name="com.tnl.entity.Department"/>
     <fullyQualifiedTypeName name="java.time.LocalDate"/>
-    <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="com.tnl.entity.News"/>
     <fullyQualifiedTypeName name="com.tnl.entity.Position"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="com.tnl.utils.ScannerUtils"/>
+    <fullyQualifiedTypeName name="com.tnl.backend.Services"/>
 </qualifiedTypeNameHistroy>
