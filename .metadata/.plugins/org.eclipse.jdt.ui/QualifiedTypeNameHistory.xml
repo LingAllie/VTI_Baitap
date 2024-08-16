@@ -11,7 +11,9 @@
     <fullyQualifiedTypeName name="java.time.LocalDate"/>
     <fullyQualifiedTypeName name="com.tnl.entity.News"/>
     <fullyQualifiedTypeName name="com.tnl.entity.Position"/>
-    <fullyQualifiedTypeName name="java.lang.System"/>
-    <fullyQualifiedTypeName name="com.tnl.utils.ScannerUtils"/>
     <fullyQualifiedTypeName name="com.tnl.backend.Services"/>
+    <fullyQualifiedTypeName name="com.tnl.utils.ScannerUtils"/>
+    <fullyQualifiedTypeName name="com.tnl.backend.InvalidAgeInputingException"/>
+    <fullyQualifiedTypeName name="com.tnl.backend.Service"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
 </qualifiedTypeNameHistroy>

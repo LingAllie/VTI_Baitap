@@ -1,40 +1,68 @@
 package com.tnl.frontend;
 
-import java.util.ArrayList;
+import java.io.File;
+import java.io.IOException;
 
-import com.tnl.backend.Services;
-import com.tnl.entity.NhanVien;
-import com.tnl.utils.ScannerUtils;
+import com.tnl.backend.Service;
+import com.tnl.entity.Department;
 
 public class Program {
 
-	public static void main(String[] args) {
-		ArrayList<NhanVien> listNv = new ArrayList<>();
-		menu();
-		while (true) {
-			int choice = ScannerUtils.inputInt("\nMoi ban chon chuc nang tuong ung: ");
-			switch(choice) {
-			case 1:
-				listNv.add(Services.taoNhanVien());
-				System.out.println("Da tao xong nhan vien");
-				break;
-			case 2:
-				Services.timKiemNhanVien(listNv);
-				break;
-			case 3: 
-				System.out.println("Thoat chuong trinh...");
-				return;
-			default:
-				System.out.println("Lua chon khong ton tai !");
-				break;
-			}
-		}
-	}
+	public static void main(String[] args) throws IOException {
+//		Department d1 = new Department(1, "IT");
+//		
+//		System.out.println(d1.toString());
+//		
+//		int tong = Service.getTong(1, 2);
+//		System.out.println(tong);
+//		
+//		Service sv = new Service();
+//		System.out.println(sv.getHieu(tong, 0));
+//
+//		System.out.println(sv.getDepartment().toString());
+//		
+//		//-------------------------------------------------
+//		
+//		File file = new File("D:\\VTI_Baitap\\File");
+//		File file = new File("D:\\VTI_Baitap\\File\\Test.txt");
+//		if (file.exists()) {
+//			System.out.println("File ton tai");
+//			file.delete();
+//		} else {
+//			file.createNewFile();
+//			// tao file trong o cung da het cho 
+//		}
+		
+//		if (file.isDirectory()) {
+//			System.out.println("File la thu muc");
+//			File[] lst = file.listFiles();
+//			System.out.println(lst.length);
+//		} else {
+//
+//			System.out.println("File ton tai");
+//		}
+		
+		//----------------------------------------------------
+		
+		Service sv = new Service();
+		String filePath = "D:\\VTI_Baitap\\File\\Text1.txt";
+        String directory = "D:\\VTI_Baitap\\File";
+        String fileName = "Text2.txt";
 
-	public static void menu() {
-		System.out.println("Quan ly nhan vien");
-		System.out.println("1: Tao nhan vien");
-		System.out.println("2: Tim kiem nhan vien");
-		System.out.println("3. Thoat");
+//        // Kiểm tra file có tồn tại không
+//        if (sv.isFileExists(filePath)) {
+//            System.out.println("File exists at " + filePath);
+//        } else {
+//            System.out.println("File does not exist at " + filePath);
+//        }
+
+        // Tạo file mới
+//        sv.createNewFile(directory, fileName);
+
+        // Xóa file
+        sv.deleteFile(filePath);
+		
 	}
+	
+
 }
