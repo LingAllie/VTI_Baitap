@@ -11,142 +11,125 @@ public class ProgramSet {
             Student s = new Student((i + 1), ("Student " + (i + 1)));
             students.add(s);
         }
-        for (int i = 0; i < 3; i++) {
-            Student s = new Student((i + 1), ("Student " + (i + 1)));
-            students.add(s);
-        }
+        
+        students.add(new Student(8, "Student X"));
+		students.add(new Student(9, "Student X"));
+		students.add(new Student(10, "Student X"));
 
         // a
-        System.out.println("\nTong phan tu cua set students: " + students.size() + " phan tu");
+        System.out.println("\na) Tong phan tu cua set students: " + students.size() + " phan tu");
 
         // b
-        Iterator<Student> iterator = students.iterator();
-        int index = 0;
-        Student fourthStudent = null;
-        while (iterator.hasNext()) {
-            Student s = iterator.next();
-            if (index == 3) { // 4th element (0-based index)
-                fourthStudent = s;
-                break;
-            }
-            index++;
+        System.out.print("\nb) Phan tu thu 4 trong set: ");
+        int count = 1;
+        for(Student s: students) {
+        	if (count == 4) {
+        		System.out.println(s.toString());
+        		break;
+        	}
+        	++count;
         }
-        System.out.println("\nPhan tu thu 4 cua set students: " + (fourthStudent != null ? fourthStudent : "No such element"));
-
         // c
-        Iterator<Student> iteratorForFirst = students.iterator();
-        Student firstStudent = iteratorForFirst.hasNext() ? iteratorForFirst.next() : null;
-
-        Student lastStudent = null;
-        while (iteratorForFirst.hasNext()) {
-            lastStudent = iteratorForFirst.next();
+        System.out.print("\nc) ");
+        int idx = 1;
+        for(Student s: students) {
+        	if (idx == 1) {
+        		System.out.println("\nPhan tu dau trong set: " + s.toString());
+        	}
+        	if (idx == students.size()) {
+        		System.out.println("\nPhan tu cuoi trong set: " + s.toString());
+        	}
+        	++idx;
         }
-
-        System.out.println("\nPhan tu dau: " + (firstStudent != null ? firstStudent : "No elements"));
-        System.out.println("Phan tu cuoi: " + (lastStudent != null ? lastStudent : "No elements"));
-
-        // d
-        students = new LinkedHashSet<>(students); // Maintain insertion order
-        students.add(new Student(11, "Student Y"));
-
-        // e
-        students.add(new Student(12, "Student Z"));
-
+        
+        // d + e
+        System.out.println("\nd) + e) Them phan tu vao dau va cuoi set: ");
+        Set<Student> newStudents = new LinkedHashSet<>();
+        newStudents.add(new Student(11, "Student Y"));
+        newStudents.addAll(students);
+        newStudents.add(new Student(12, "Student Z"));
+        for(Student s: newStudents) {
+        	System.out.println(s.toString());
+        }
+       
         // f
-        List<Student> studentList = new ArrayList<>(students);
-        Collections.reverse(studentList);
-        System.out.println("\nSau khi dao nguoc set\n");
-        for (Student s : studentList) {
-            System.out.println(s);
+        Stack<Student> stuStack = new Stack<>();
+        for(Student s: newStudents) {
+        	stuStack.push(s);
         }
-
+        System.out.print("\nf) Sau khi dao nguoc set\n");
+        while (!stuStack.isEmpty()) {
+        	System.out.println(stuStack.pop().toString());
+        }
         // g
-        System.out.print("\nTim stu co id = 2\n");
-        findStuById(2, students);
+        System.out.print("\ng)Tim stu co id = 2\n");
+        findStuById(2, newStudents);
 
         // h
-        System.out.print("\nTim stu co name = `Student Z`\n");
-        findStuByName("Student Z", students);
+        System.out.print("\nh)Tim stu co name = `Student Z`\n");
+        findStuByName("Student Z", newStudents);
 
         // i
-        System.out.print("\nTim stu co name duplicate\n");
-        findStuDupName(students);
+        // Set auto eliminate duplicate values when add in set
 
         // j
-        System.out.print("\nXoa ten student id = 2\n");
-        for (Student s : students) {
-            if (s.getId() == 2) {
-                s.setName(null);
-                System.out.println(s.toString());
-                break;
-            }
-        }
+        System.out.print("\nj)Xoa ten student id = 2\n");
+        removeNameById(2, newStudents);
 
         // k
-        System.out.print("\n\nXoa student co id = 5\n");
-        System.out.print("truoc khi xoa: size =" + students.size());
-        removeStuById(5, students);
-        System.out.print("\nSau khi xoa: size =" + students.size() + "\n");
-        for (Student s : students) {
+        System.out.print("\nk)Xoa student co id = 5\n");
+        removeStuById(5, newStudents);
+        System.out.print("\nSau khi xoa:\n");
+        for (Student s : newStudents) {
             System.out.println(s.toString());
         }
 
         // l
-        System.out.print("\n\nArrayList copies\n");
-        ArrayList<Student> studentCopies = new ArrayList<>(students);
-        for (Student sc : studentCopies) {
-            System.out.println(sc.toString());
+        System.out.print("\nl)ArrayList copies\n");
+        ArrayList<Student> newStuArray = new ArrayList(newStudents);
+        for(Student s: newStuArray) {
+        	System.out.println(s.toString());
         }
+        
 
 	}
 	
-	public static void removeStuById(int id, Set<Student> students) {
-	    Iterator<Student> iterator = students.iterator();
-	    while (iterator.hasNext()) {
-	        Student s = iterator.next();
-	        if (s.getId() == id) {
-	            iterator.remove();
-	            break;
-	        }
-	    }
+	public static void removeNameById(int id, Set<Student> newStudents) {
+		for(Student s: newStudents) {
+			if (s.getId() == id) {
+				s.setName(null);
+				break;
+			}
+		}
+	}
+
+	public static void removeStuById(int id, Set<Student> newStudents) {
+	   for(Student s: newStudents) {
+		   if(s.getId() == id) {
+			   newStudents.remove(s);
+			   break;
+		   }
+	   }
 	}
 
 
-	public static void findStuDupName(Set<Student> students) {
-	    Set<String> names = new HashSet<>();
-	    Set<String> duplicateNames = new HashSet<>();
-	    for (Student s : students) {
-	        if (!names.add(s.getName().toLowerCase())) {
-	            duplicateNames.add(s.getName().toLowerCase());
-	        }
-	    }
-	    for (String name : duplicateNames) {
-	        System.out.println("\nDuplicate name: " + name);
-	        for (Student s : students) {
-	            if (s.getName().equalsIgnoreCase(name)) {
-	                System.out.println(s);
-	            }
-	        }
-	    }
+	public static void findStuByName(String name, Set<Student> newStudents) {
+		for(Student s: newStudents) {
+			   if(s.getName() == name) {
+				   System.out.println(s.toString());
+				   break;
+			   }
+		   }
 	}
 
 
-	public static void findStuByName(String name, Set<Student> students) {
-	    for (Student s : students) {
-	        if (s.getName().equalsIgnoreCase(name)) {
-	            System.out.println(s);
-	        }
-	    }
-	}
-
-
-	public static void findStuById(int id, Set<Student> students) {
-	    for (Student s : students) {
-	        if (s.getId() == id) {
-	            System.out.println(s);
-	            return; // Exit after finding the first match
-	        }
-	    }
+	public static void findStuById(int id, Set<Student> newStudents) {
+	   for(Student s: newStudents) {
+		   if(s.getId() == id) {
+			   System.out.println(s.toString());
+			   break;
+		   }
+	   }
 	}
 
 }
