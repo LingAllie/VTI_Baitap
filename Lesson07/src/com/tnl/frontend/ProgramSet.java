@@ -62,22 +62,23 @@ public class ProgramSet {
         	System.out.println(stuStack.pop().toString());
         }
         // g
-        System.out.print("\ng)Tim stu co id = 2\n");
+        System.out.print("\ng)Tim stu co id = 2: ");
         findStuById(2, newStudents);
 
         // h
-        System.out.print("\nh)Tim stu co name = `Student Z`\n");
+        System.out.print("\nh)Tim stu co name = `Student Z`: ");
         findStuByName("Student Z", newStudents);
 
         // i
-        // Set auto eliminate duplicate values when add in set
+        System.out.println("\ni) Tim stu trung ten: ");
+        findStuDupName(newStudents);
 
         // j
-        System.out.print("\nj)Xoa ten student id = 2\n");
+        System.out.println("\nj)Xoa ten student id = 2");
         removeNameById(2, newStudents);
 
         // k
-        System.out.print("\nk)Xoa student co id = 5\n");
+        System.out.print("\nk)Xoa student co id = 5");
         removeStuById(5, newStudents);
         System.out.print("\nSau khi xoa:\n");
         for (Student s : newStudents) {
@@ -85,15 +86,63 @@ public class ProgramSet {
         }
 
         // l
-        System.out.print("\nl)ArrayList copies\n");
-        ArrayList<Student> newStuArray = new ArrayList(newStudents);
+        System.out.println("\nl)ArrayList copies");
+        List<Student> newStuArray = new ArrayList<>(newStudents);
         for(Student s: newStuArray) {
         	System.out.println(s.toString());
         }
         
+        // m
+        System.out.println("\nm)Set student khong co ten trung lap");
+        Set<Student> newStuNoDupName = delStuDupName(newStudents);
+        for(Student s: newStuNoDupName) {
+        	System.out.println(s.toString());
+        }
+        
+        // n
+        System.out.println("\nn) Sap xep set student khong co ten trung lap");
+        Set<Student> sortStudents = new TreeSet<>(Comparator.comparing(Student::getName));
+        sortStudents.addAll(newStuNoDupName);
+        for(Student s: sortStudents) {
+        	System.out.println(s.toString());
+        }
 
 	}
 	
+	public static Set<Student> delStuDupName(Set<Student> students) {
+		Set<Student> dupStudents = new LinkedHashSet<>();
+		for(Student s1: students) {
+			int id = s1.getId();
+			for (Student s2: students) {
+				if (s2.getId() != id && s2.getId() > id && s1.getName() != null && s2.getName() != null) {
+					if(s1.getName().equalsIgnoreCase(s2.getName())) {
+						dupStudents.add(s2);
+					} 
+				} else if (s2.getName() == null) {
+					dupStudents.add(s2);
+				}
+			}
+		}
+		students.removeAll(dupStudents);
+		return students;
+	}
+
+	public static void findStuDupName(Set<Student> newStudents) {
+		int count = 0;
+		for(Student s1: newStudents) {
+			int id = s1.getId();
+			for (Student s2: newStudents) {
+				if (s2.getId() != id && s2.getId() > id) {
+					if(s1.getName().equalsIgnoreCase(s2.getName())) {
+						System.out.println("\nPair " + count++);
+						System.out.println(s1.toString());
+						System.out.println(s2.toString());
+					}
+				}
+			}
+		}
+	}
+
 	public static void removeNameById(int id, Set<Student> newStudents) {
 		for(Student s: newStudents) {
 			if (s.getId() == id) {
