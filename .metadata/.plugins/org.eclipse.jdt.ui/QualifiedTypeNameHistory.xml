@@ -16,4 +16,8 @@
     <fullyQualifiedTypeName name="com.tnl.backend.InvalidAgeInputingException"/>
     <fullyQualifiedTypeName name="com.tnl.backend.Service"/>
     <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="java.sql.DriverManager"/>
+    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+    <fullyQualifiedTypeName name="com.vti.utils.JdbcConnection"/>
 </qualifiedTypeNameHistroy>
