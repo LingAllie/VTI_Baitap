@@ -1,6 +1,7 @@
 package com.vti.frontend;
 
 import java.io.*;
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -18,7 +19,44 @@ public class App
 {
     public static void main( String[] args ) throws SQLException, FileNotFoundException, IOException 
     {
-    	viewUserById(9);
+//    	viewUserById(2);
+    	
+    	System.out.println("=========== 1 ===========");
+    	Connection con = JdbcConnection.getConnection();
+    	String sql = "{CALL getListAllUser()}";
+    	CallableStatement call = con.prepareCall(sql);
+    	ResultSet rs = call.executeQuery();
+    	while(rs.next()) {
+    	    System.out.println("username:" + rs.getString("username"));
+    	}
+    	JdbcConnection.closeConnection(null, null, call, rs);
+    	
+    	
+    	System.out.println("=========== 2 ===========");
+    	String sql2 = "{CALL GetListUserById(?)}";
+    	CallableStatement call2 = con.prepareCall(sql2);
+    	call2.setInt(1, 3);
+    	ResultSet rs2 = call2.executeQuery();
+    	while(rs2.next()) {
+    	    System.out.println("username:" + rs2.getString("username"));
+    	}
+    	JdbcConnection.closeConnection(null, null, call2, rs2);
+    	
+    	
+    	System.out.println("=========== 3 ===========");
+    	String sql3 = "{CALL updateUserById(?, ?)}";
+    	CallableStatement call3 = con.prepareCall(sql3);
+    	call3.setInt(1, 2);
+    	call3.setString(2, "Yin");
+    	int count = call3.executeUpdate();
+    	if (count > 0) {
+    		System.out.println("Update ok");
+    	}
+    	
+    	
+    	JdbcConnection.closeConnection(con, null, call3, null);
+
+    	
     }
     
     public static void viewUserById(int idTmp) throws SQLException, FileNotFoundException, IOException {
@@ -27,17 +65,17 @@ public class App
 	    ResultSet rs = null;
 	    try {
 	        connection = JdbcConnection.getConnection();
-	        String sql = "select * from users where id = ?";
+	        String sql = "select * from users where user_id = ?";
 	        pstmt = connection.prepareStatement(sql);
 	        pstmt.setInt(1, idTmp);
 	        rs = pstmt.executeQuery();
 	        boolean flag = false;
 	        while (rs.next()) {
 	        	flag = true;
-	        	int id = rs.getInt("id");
+	        	int id = rs.getInt("user_id");
                 String us = rs.getString("username");
-                String pass = rs.getString("password");
-	        	System.out.println("User: " + id + " " + us + " " + pass);
+//                String pass = rs.getString("password");
+	        	System.out.println("User: " + id + " " + us );
 	        }
 	        if (!flag) {
 	        	System.out.println("Khong tim thay user !");
@@ -45,7 +83,7 @@ public class App
 	    } catch (SQLException e) {
 	        e.printStackTrace();
 	    } finally {
-	        JdbcConnection.closeConnection(connection, pstmt, rs);
+	        JdbcConnection.closeConnection(connection, pstmt, null, rs);
 	    }
 	}
 	
@@ -88,7 +126,7 @@ public class App
 	    } catch (Exception e) {
 	        e.printStackTrace();
 	    } finally {
-	        JdbcConnection.closeConnection(con, pstmt, null);
+	        JdbcConnection.closeConnection(con, pstmt, null, null);
 	    }
 	}
 	
@@ -109,7 +147,7 @@ public class App
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			JdbcConnection.closeConnection(con, pstmt, null);
+			JdbcConnection.closeConnection(con, pstmt, null, null);
 		}
 	}
 
@@ -129,9 +167,10 @@ public class App
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			JdbcConnection.closeConnection(con, pstmt, null);
+			JdbcConnection.closeConnection(con, pstmt, null, null);
 		}
 	}
+	
 
 }
 

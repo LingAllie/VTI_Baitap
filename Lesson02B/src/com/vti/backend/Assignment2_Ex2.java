@@ -116,7 +116,7 @@ public class Assignment2_Ex2 {
 			}
 		}
 
-		if (count <= 2) {
+		if (count == 2) {
 			return true;
 		} else {
 			return false;

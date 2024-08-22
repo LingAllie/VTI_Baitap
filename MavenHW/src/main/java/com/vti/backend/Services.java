@@ -528,3 +528,226 @@ public class Services {
 		}
 	}
 }
+
+
+
+/*  package com.vti.backend;
+
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.vti.entity.Department;
+import com.vti.entity.Position;
+import com.vti.entity.Users;
+import com.vti.utils.JdbcConnection;
+import com.vti.utils.ScannerUtils;
+
+public class Services {
+    public static List<Users> usersList = new ArrayList<>();
+    public static List<Department> depsList = new ArrayList<>();
+    public static List<Position> possList = new ArrayList<>();
+
+    public static List<Users> getUserList() throws SQLException {
+        try (Connection con = JdbcConnection.getConnection();
+             PreparedStatement pstmt = con.prepareStatement("SELECT * FROM users");
+             ResultSet rs = pstmt.executeQuery()) {
+
+            while (rs.next()) {
+                Users user = new Users(
+                    rs.getInt("user_id"),
+                    rs.getString("username"),
+                    getDepartmentByCol(rs.getInt("department_id"), null),
+                    getPositionByCol(rs.getInt("position_id"), null)
+                );
+                usersList.add(user);
+            }
+        }
+        return usersList;
+    }
+
+    public static List<Department> getDepartmentList() throws SQLException {
+        try (Connection con = JdbcConnection.getConnection();
+             PreparedStatement pstmt = con.prepareStatement("SELECT * FROM department");
+             ResultSet rs = pstmt.executeQuery()) {
+
+            while (rs.next()) {
+                depsList.add(new Department(rs.getInt("department_id"), rs.getString("department_name")));
+            }
+        }
+        return depsList;
+    }
+
+    public static List<Position> getPositionList() throws SQLException, IOException {
+        try (Connection con = JdbcConnection.getConnection();
+             PreparedStatement pstmt = con.prepareStatement("SELECT * FROM `position`");
+             ResultSet rs = pstmt.executeQuery()) {
+
+            while (rs.next()) {
+                possList.add(new Position(rs.getInt("position_id"), rs.getString("position_name")));
+            }
+        }
+        return possList;
+    }
+
+    public static boolean checkDB(String sql, String msg, String col) throws SQLException {
+        try (Connection con = JdbcConnection.getConnection();
+             PreparedStatement pstmt = con.prepareStatement(sql);
+             ResultSet rs = pstmt.executeQuery()) {
+
+            if (rs.next() && rs.getInt(col) > 0) {
+                return true;
+            }
+        }
+        System.out.println(msg);
+        return false;
+    }
+
+    public static Department getDepartmentByCol(int depIdTemp, String depNameTemp) throws SQLException {
+        String sql = depIdTemp != 0 
+            ? "SELECT * FROM department WHERE department_id = ?" 
+            : "SELECT * FROM department WHERE department_name = ?";
+        try (Connection con = JdbcConnection.getConnection();
+             PreparedStatement pstmt = con.prepareStatement(sql)) {
+
+            if (depIdTemp != 0) {
+                pstmt.setInt(1, depIdTemp);
+            } else {
+                pstmt.setString(1, depNameTemp);
+            }
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    return new Department(rs.getInt("department_id"), rs.getString("department_name"));
+                }
+            }
+        }
+        System.out.println(depIdTemp != 0 
+            ? "No department has id = " + depIdTemp 
+            : "No department has name = " + depNameTemp);
+        return null;
+    }
+
+    public static Position getPositionByCol(int posIdTemp, String posNameTemp) throws SQLException {
+        String sql = posIdTemp != 0 
+            ? "SELECT * FROM `position` WHERE position_id = ?" 
+            : "SELECT * FROM `position` WHERE position_name = ?";
+        try (Connection con = JdbcConnection.getConnection();
+             PreparedStatement pstmt = con.prepareStatement(sql)) {
+
+            if (posIdTemp != 0) {
+                pstmt.setInt(1, posIdTemp);
+            } else {
+                pstmt.setString(1, posNameTemp);
+            }
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    return new Position(rs.getInt("position_id"), rs.getString("position_name"));
+                }
+            }
+        }
+        System.out.println(posIdTemp != 0 
+            ? "No position has id = " + posIdTemp 
+            : "No position has name = " + posNameTemp);
+        return null;
+    }
+
+    public static int getUserId() throws SQLException {
+        try (Connection con = JdbcConnection.getConnection();
+             PreparedStatement pstmt = con.prepareStatement("SELECT COUNT(*) AS user_quantity FROM users");
+             ResultSet rs = pstmt.executeQuery()) {
+
+            if (rs.next()) {
+                return rs.getInt("user_quantity");
+            }
+        }
+        System.out.println("No user found !");
+        return 0;
+    }
+
+    public static void insertDepartment() throws SQLException {
+        String sql = "INSERT INTO department (department_name) VALUES (?)";
+        executeInsertWithPrompt("Department name", sql);
+    }
+
+    public static void insertPosition() throws SQLException {
+        String sql = "INSERT INTO `position` (position_name) VALUES (?)";
+        executeInsertWithPrompt("Position name", sql);
+    }
+
+    public static void insertUser() throws SQLException {
+        if (checkDB("SELECT COUNT(*) AS dep_quantity FROM department", 
+                    "Department table is empty! Please insert data...", 
+                    "dep_quantity") 
+            && 
+            checkDB("SELECT COUNT(*) AS pos_quantity FROM `position`", 
+                    "Position table is empty! Please insert data...", 
+                    "pos_quantity")) {
+
+            try (Connection con = JdbcConnection.getConnection();
+                 PreparedStatement pstmt = con.prepareStatement("INSERT INTO users (username, department_id, position_id) VALUES (?, ?, ?)")) {
+
+                while (true) {
+                    System.out.print("Input username: ");
+                    String username = ScannerUtils.inputString("Username is empty !");
+                    
+                    int depId = getValidatedInputId("department", depsList);
+                    int posId = getValidatedInputId("position", possList);
+
+                    pstmt.setString(1, username);
+                    pstmt.setInt(2, depId);
+                    pstmt.setInt(3, posId);
+
+                    if (pstmt.executeUpdate() > 0) {
+                        System.out.println("Insert user successfully !");
+                        if (!promptContinue("Continue add user?")) break;
+                    }
+                }
+            }
+        }
+    }
+
+    private static void executeInsertWithPrompt(String prompt, String sql) throws SQLException {
+        try (Connection con = JdbcConnection.getConnection();
+             PreparedStatement pstmt = con.prepareStatement(sql)) {
+
+            while (true) {
+                System.out.print("Input " + prompt + ": ");
+                String inputValue = ScannerUtils.inputString(prompt + " is empty!");
+
+                pstmt.setString(1, inputValue);
+                if (pstmt.executeUpdate() > 0) {
+                    System.out.println("Insert " + prompt.toLowerCase() + " successfully!");
+                    if (!promptContinue("Continue add " + prompt.toLowerCase() + "?")) break;
+                }
+            }
+        }
+    }
+
+    private static int getValidatedInputId(String entity, List<?> list) throws SQLException {
+        if (list.isEmpty()) return -1;
+
+        list.forEach(System.out::println);
+        System.out.print("Input " + entity + " id: ");
+        int id = ScannerUtils.inputInt();
+        while (id == 0) {
+            System.out.print("Non-existent " + entity + "! Input " + entity + " id again: ");
+            id = ScannerUtils.inputInt();
+        }
+        return id;
+    }
+
+    private static boolean promptContinue(String message) throws SQLException {
+        System.out.print(message + " 1: Yes | 2: No... ");
+        int res = ScannerUtils.inputInt();
+        while (res != 1 && res != 2) {
+            System.out.print(message + " 1: Yes | 2: No... ");
+            res = ScannerUtils.inputInt();
+        }
+        return res == 1;
+    }
+}
+*/

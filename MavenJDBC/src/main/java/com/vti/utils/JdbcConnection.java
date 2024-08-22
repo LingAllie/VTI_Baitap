@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -31,7 +32,7 @@ public class JdbcConnection {
 		return connection;
 	}
 
-	public static void closeConnection(Connection connection, PreparedStatement pstmt, ResultSet rs)
+	public static void closeConnection(Connection connection, PreparedStatement pstmt, CallableStatement call, ResultSet rs)
 			throws SQLException {
 
 		if (rs != null) {
@@ -39,6 +40,9 @@ public class JdbcConnection {
 		}
 		if (pstmt != null) {
 			pstmt.close();
+		}
+		if (call != null) {
+			call.close();
 		}
 		if (connection != null && !connection.isClosed()) {
 			connection.close();
