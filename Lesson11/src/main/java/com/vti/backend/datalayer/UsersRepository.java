@@ -7,13 +7,21 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.vti.backend.datalayer.Impl.IDepartmentRepository;
+import com.vti.backend.datalayer.Impl.IUserRepository;
 import com.vti.entity.Department;
 import com.vti.entity.Users;
 import com.vti.utils.JdbcConnection;
 
-public class UsersRepository {
+public class UsersRepository implements IUserRepository{
+	
+	public IDepartmentRepository iDepartmentRepository;
+	
+	public UsersRepository() {
+		iDepartmentRepository = new DepartmentRepository();
+	}
 
-	public static List<Users> getListUsers() throws SQLException {
+	public List<Users> getListUsers() throws SQLException {
 		Connection con = null;
 		PreparedStatement psmt = null;
 		ResultSet rs = null;
@@ -28,7 +36,7 @@ public class UsersRepository {
 				String username = rs.getString("username");
 				String password = rs.getString("password");
 				int depId = rs.getInt("department_id");
-				Users u = new Users(id, username, password, DepartmentRepository.getDepartment(depId));
+				Users u = new Users(id, username, password, iDepartmentRepository.getDepartment(depId));
 				lstUser.add(u);
 			}
 		} catch (Exception e) {
@@ -39,7 +47,7 @@ public class UsersRepository {
 		return lstUser;
 	}
 	
-	public static boolean insertUser(int id, String username, String password, int departmentId) throws SQLException {
+	public boolean insertUser(int id, String username, String password, int departmentId) throws SQLException {
 		Connection con = null;
 		PreparedStatement psmt = null;
 		boolean result = false;
@@ -67,7 +75,7 @@ public class UsersRepository {
 		return result;
 	}
 	
-	public static boolean updatePassword(int idTemp, String newPass) throws SQLException {
+	public boolean updatePassword(int idTemp, String newPass) throws SQLException {
 		Connection con = null;
 		PreparedStatement psmt = null;
 		boolean res = false;
@@ -88,7 +96,7 @@ public class UsersRepository {
 		return res;
 	}
 	
-	public static boolean deleteUserById(int id) throws SQLException {
+	public boolean deleteUserById(int id) throws SQLException {
 		Connection con = null;
 		PreparedStatement psmt = null;
 		boolean res = false;
@@ -106,6 +114,75 @@ public class UsersRepository {
 			JdbcConnection.closeConnection(con, psmt, null);
 		}
 		return res;
+	}
+
+	@Override
+	public boolean checkUsername(String username) throws SQLException {
+		Connection con = null;
+		PreparedStatement psmt = null;
+		ResultSet rs = null;
+		try {
+			con = JdbcConnection.getConnection();
+			String sql = "SELECT * FROM users WHERE username = ? ";
+			psmt = con.prepareStatement(sql);
+			psmt.setString(1, username);
+			rs = psmt.executeQuery();
+			if (rs.next()) {
+				return true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JdbcConnection.closeConnection(con, psmt, rs);
+		}
+		return false;
+	}
+
+	@Override
+	public boolean checkNewPass(String newPass) throws SQLException {
+		Connection con = null;
+		PreparedStatement psmt = null;
+		ResultSet rs = null;
+		try {
+			con = JdbcConnection.getConnection();
+			String sql = "SELECT * FROM users WHERE password = ? ";
+			psmt = con.prepareStatement(sql);
+			psmt.setString(1, newPass);
+			rs = psmt.executeQuery();
+			if (rs.next()) {
+				return true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JdbcConnection.closeConnection(con, psmt, rs);
+		}
+		return false;
+	}
+
+	@Override
+	public boolean login(String username, String password) throws SQLException {
+		Connection con = null;
+		PreparedStatement psmt = null;
+		ResultSet rs = null;
+		try {
+			con = JdbcConnection.getConnection();
+			String sql = "SELECT * FROM users WHERE username = ? AND password = ?";
+			psmt = con.prepareStatement(sql);
+			psmt.setString(1, username);
+			psmt.setString(2, password);
+			rs = psmt.executeQuery();
+			if (rs.next()) {
+				return true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JdbcConnection.closeConnection(con, psmt, rs);
+		}
+		
+		System.out.println("Username or password incorrect ! Please try again !");
+		return false;
 	}
 	
 	

@@ -6,12 +6,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.vti.backend.datalayer.Impl.IDepartmentRepository;
 import com.vti.entity.Department;
 import com.vti.utils.JdbcConnection;
 
-public class DepartmentRepository {
+public class DepartmentRepository implements IDepartmentRepository{
 
-	public static List<Department> getListDepartment() throws SQLException {
+	public List<Department> getListDepartment() throws SQLException {
 		Connection con = null;
 		PreparedStatement psmt = null;
 		ResultSet rs = null;
@@ -36,7 +38,7 @@ public class DepartmentRepository {
 	}
 	
 	
-	public static Department getDepartment(int idTemp) throws SQLException {
+	public Department getDepartment(int idTemp) throws SQLException {
 
 		Connection con = null;
 		PreparedStatement psmt = null;
@@ -61,7 +63,7 @@ public class DepartmentRepository {
 	}
 
 	
-	public static boolean insertDepartment(int depId, String depName) throws SQLException {
+	public boolean insertDepartment(int depId, String depName) throws SQLException {
 		Connection con = null;
 		PreparedStatement psmt = null;
 		boolean result = false;
@@ -87,7 +89,7 @@ public class DepartmentRepository {
 		return result;
 	}
 	
-	public static boolean updateName(int idTemp, String newName) throws SQLException {
+	public boolean updateName(int idTemp, String newName) throws SQLException {
 		Connection con = null;
 		PreparedStatement psmt = null;
 		boolean res = false;
@@ -108,7 +110,7 @@ public class DepartmentRepository {
 		return res;
 	}
 	
-	public static boolean deleteDepartmentById(int id) throws SQLException {
+	public boolean deleteDepartmentById(int id) throws SQLException {
 		Connection con = null;
 		PreparedStatement psmt = null;
 		boolean res = false;
@@ -126,5 +128,28 @@ public class DepartmentRepository {
 			JdbcConnection.closeConnection(con, psmt, null);
 		}
 		return res;	
+	}
+
+
+	@Override
+	public boolean checkDepartmentName(String depName) throws SQLException {
+		Connection con = null;
+		PreparedStatement psmt = null;
+		ResultSet rs = null;
+		try {
+			con = JdbcConnection.getConnection();
+			String sql = "SELECT * FROM department WHERE department_id = ? ";
+			psmt = con.prepareStatement(sql);
+			psmt.setString(1, depName);
+			rs = psmt.executeQuery();
+			if (rs.next()) {
+				return true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JdbcConnection.closeConnection(con, psmt, rs);
+		}
+		return false;
 	}
 }
