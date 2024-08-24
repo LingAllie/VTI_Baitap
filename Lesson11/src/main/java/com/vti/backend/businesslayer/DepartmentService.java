@@ -29,6 +29,10 @@ public class DepartmentService implements IDepartmentService{
 	}
 	
 	public Department getDepartmentByCol(String arg) throws Exception {
+		if (iDepartmentRepository.getDepartmentByCol(arg) == null) {
+			System.out.println("Department does not exist !");
+			return null;
+		}
 		return iDepartmentRepository.getDepartmentByCol(arg);
 	}
 	

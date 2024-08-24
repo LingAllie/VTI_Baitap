@@ -109,7 +109,7 @@ public class App {
 					
 					case 10:
 						arg = ScannerUtils.inputName("Enter id/ department_name for searching: ");
-						System.out.println(departmentController.getDepartmentByCol(arg).toString());;
+						System.out.println(departmentController.getDepartmentByCol(arg).toString());
 						break;
 						
 					case 11:
