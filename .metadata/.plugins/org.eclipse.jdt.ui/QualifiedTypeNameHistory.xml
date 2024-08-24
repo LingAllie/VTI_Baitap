@@ -31,4 +31,5 @@
     <fullyQualifiedTypeName name="com.vti.backend.businesslayer.UsersService"/>
     <fullyQualifiedTypeName name="com.vti.backend.businesslayer.DepartmentService"/>
     <fullyQualifiedTypeName name="com.vti.backend.datalayer.DepartmentRepository"/>
+    <fullyQualifiedTypeName name="java.lang.String"/>
 </qualifiedTypeNameHistroy>

@@ -9,6 +9,12 @@ import com.vti.entity.Department;
 import com.vti.entity.Users;
 import com.vti.utils.ScannerUtils;
 
+
+/**
+ * @author Linh
+ * @update Aug 24, 2024
+ */
+
 public class App {
 
 	public static UsersController usersController = new UsersController();
