@@ -63,7 +63,7 @@ public class DepartmentRepository implements IDepartmentRepository{
 	}
 
 	
-	public boolean insertDepartment(int depId, String depName) throws SQLException {
+	public boolean insertDepartment(String depName) throws Exception {
 		Connection con = null;
 		PreparedStatement psmt = null;
 		boolean result = false;
@@ -71,18 +71,17 @@ public class DepartmentRepository implements IDepartmentRepository{
 			con = JdbcConnection.getConnection();
 			con.setAutoCommit(false);
 			
-			String sql = "INSERT INTO department VALUES (?, ?)";
+			String sql = "INSERT INTO department (department_name) VALUES (?)";
 			psmt = con.prepareStatement(sql);
-			psmt.setInt(1, depId);
-			psmt.setString(2, depName);
+			psmt.setString(1, depName);
 			int count = psmt.executeUpdate();
 			if (count > 0) {
 				con.commit();
 				result = true;
 			} 
 		} catch (Exception e) {
-			e.printStackTrace();
 			con.rollback();
+			throw new Exception("Insert error...!!!");
 		} finally {
 			JdbcConnection.closeConnection(con, psmt, null);
 		}

@@ -19,13 +19,13 @@ public class UsersService implements IUsersService {
         return iUserRepository.getListUsers();
     }
 
-    public boolean insertUser(int id, String username, String password, int departmentId) throws SQLException {
+    public boolean insertUser(String username, String password, int departmentId) throws Exception {
         if(iUserRepository.checkUsername(username)) {
         	System.out.println("Username has existed !");
         	return false;
         }
      
-    	return iUserRepository.insertUser(id, username, password, departmentId);
+    	return iUserRepository.insertUser(username, password, departmentId);
     }
 
     public boolean updatePassword(int idTemp, String newPass) throws SQLException {

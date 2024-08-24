@@ -20,12 +20,12 @@ public class DepartmentService implements IDepartmentService{
 		return iDepartmentRepository.getListDepartment();
 	}
 	
-	public boolean insertDepartment(int depId, String depName) throws SQLException {
+	public boolean insertDepartment(String depName) throws Exception {
 		if(iDepartmentRepository.checkDepartmentName(depName)) {
 			System.out.println("Department name has existed !");
 			return false;
 		}
-		return iDepartmentRepository.insertDepartment(depId, depName);
+		return iDepartmentRepository.insertDepartment(depName);
 	}
 	
 	public Department getDepartment(int idTemp) throws SQLException {

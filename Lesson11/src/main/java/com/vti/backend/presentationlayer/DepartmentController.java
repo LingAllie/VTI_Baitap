@@ -19,8 +19,8 @@ public class DepartmentController {
 		return iDepartmentService.getListDepartment();
 	}
 	
-	public boolean insertDepartment(int depId, String depName) throws SQLException {
-		return iDepartmentService.insertDepartment(depId, depName);
+	public boolean insertDepartment(String depName) throws Exception {
+		return iDepartmentService.insertDepartment(depName);
 	}
 	
 	public Department getDepartment(int idTemp) throws SQLException {

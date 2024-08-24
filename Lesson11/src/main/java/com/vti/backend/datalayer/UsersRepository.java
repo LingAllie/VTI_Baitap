@@ -47,7 +47,7 @@ public class UsersRepository implements IUserRepository{
 		return lstUser;
 	}
 	
-	public boolean insertUser(int id, String username, String password, int departmentId) throws SQLException {
+	public boolean insertUser(String username, String password, int departmentId) throws Exception {
 		Connection con = null;
 		PreparedStatement psmt = null;
 		boolean result = false;
@@ -55,20 +55,19 @@ public class UsersRepository implements IUserRepository{
 			con = JdbcConnection.getConnection();
 			con.setAutoCommit(false);
 			
-			String sql = "INSERT INTO users VALUES (?, ?, ?, ?)";
+			String sql = "INSERT INTO users (username, password, department_id) VALUES (?, ?, ?)";
 			psmt = con.prepareStatement(sql);
-			psmt.setInt(1, id);
-			psmt.setString(2, username);
-			psmt.setString(3, password);
-			psmt.setInt(4, departmentId);
+			psmt.setString(1, username);
+			psmt.setString(2, password);
+			psmt.setInt(3, departmentId);
 			int count = psmt.executeUpdate();
 			if (count > 0) {
 				con.commit();
 				result = true;
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
 			con.rollback();
+			throw new Exception("Insert error... !!!");
 		} finally {
 			JdbcConnection.closeConnection(con, psmt, null);
 		}

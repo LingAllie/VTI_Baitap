@@ -11,7 +11,7 @@ public interface IDepartmentRepository {
 	
 	public abstract Department getDepartment(int idTemp) throws SQLException;
 	
-	public abstract boolean insertDepartment(int depId, String depName) throws SQLException;
+	public abstract boolean insertDepartment(String depName) throws SQLException, Exception;
 	
 	public abstract boolean updateName(int idTemp, String newName) throws SQLException;
 	

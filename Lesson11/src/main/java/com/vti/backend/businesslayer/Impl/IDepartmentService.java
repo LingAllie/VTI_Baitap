@@ -9,7 +9,7 @@ public interface IDepartmentService {
 
 	public abstract List<Department> getListDepartment() throws SQLException;
 	
-	public abstract boolean insertDepartment(int depId, String depName) throws SQLException;
+	public abstract boolean insertDepartment(String depName) throws SQLException, Exception;
 	
 	public abstract Department getDepartment(int idTemp) throws SQLException;
 	

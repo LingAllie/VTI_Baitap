@@ -11,7 +11,7 @@ public interface IUserRepository {
 
 	public abstract List<Users> getListUsers() throws SQLException;
 	
-	public abstract boolean insertUser(int id, String username, String password, int departmentId) throws SQLException;
+	public abstract boolean insertUser(String username, String password, int departmentId) throws SQLException, Exception;
 	
 	public abstract boolean updatePassword(int idTemp, String newPass) throws SQLException;
 	

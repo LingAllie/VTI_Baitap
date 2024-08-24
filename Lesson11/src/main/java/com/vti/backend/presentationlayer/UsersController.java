@@ -29,12 +29,12 @@ public class UsersController {
 		return iUsersService.getListUser();
 	}
 	
-	public boolean insertUser(int id, String username, String password, int departmentId) throws SQLException {
+	public boolean insertUser(String username, String password, int departmentId) throws Exception {
 		if (password.length() < 6) {
 			System.out.println("Password must more than 6 characters !\n");
 			return false;
 		}
-		return iUsersService.insertUser(id, username, password, departmentId);
+		return iUsersService.insertUser(username, password, departmentId);
 	}
 	
 	public boolean updatePassword(int idTemp, String newPass) throws SQLException {
