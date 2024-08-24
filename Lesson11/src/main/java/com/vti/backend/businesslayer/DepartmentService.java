@@ -21,22 +21,33 @@ public class DepartmentService implements IDepartmentService{
 	}
 	
 	public boolean insertDepartment(String depName) throws Exception {
-		if(iDepartmentRepository.checkDepartmentName(depName)) {
+		if(iDepartmentRepository.getDepartmentByCol(depName) != null) {
 			System.out.println("Department name has existed !");
 			return false;
 		}
 		return iDepartmentRepository.insertDepartment(depName);
 	}
 	
-	public Department getDepartment(int idTemp) throws SQLException {
-		return iDepartmentRepository.getDepartment(idTemp);
+	public Department getDepartmentByCol(String arg) throws Exception {
+		return iDepartmentRepository.getDepartmentByCol(arg);
 	}
 	
-	public boolean updateName(int idTemp, String newName) throws SQLException {
-		return iDepartmentRepository.updateName(idTemp, newName);
+	public boolean updateName(int idTemp, String newName) throws Exception {
+		if(iDepartmentRepository.getDepartmentByCol(String.valueOf(idTemp)) != null) {
+			return iDepartmentRepository.updateName(idTemp, newName);
+		} else {
+			System.out.println("Non_existed department !");
+			return false;
+		}
+		
 	}
 	
-	public boolean deleteDepartmentById(int id) throws SQLException {
-		return iDepartmentRepository.deleteDepartmentById(id);
+	public boolean deleteDepartmentById(int id) throws Exception {
+		if(iDepartmentRepository.getDepartmentByCol(String.valueOf(id)) != null) {
+			return iDepartmentRepository.deleteDepartmentById(id);
+		} else {
+			System.out.println("Non_existed department !");
+			return false;
+		}
 	}
 }

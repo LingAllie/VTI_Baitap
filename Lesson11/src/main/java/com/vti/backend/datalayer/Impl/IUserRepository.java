@@ -16,8 +16,6 @@ public interface IUserRepository {
 	public abstract boolean updatePassword(int idTemp, String newPass) throws SQLException;
 	
 	public abstract boolean deleteUserById(int id) throws SQLException;
-
-	public abstract boolean checkUsername(String username) throws SQLException;
-
-	public abstract boolean checkNewPass(String newPass) throws SQLException;
+	
+	public abstract Users getUserByCol(String arg) throws SQLException, Exception;
 }

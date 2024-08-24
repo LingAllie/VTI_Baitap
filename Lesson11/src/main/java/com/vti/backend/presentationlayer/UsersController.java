@@ -26,7 +26,12 @@ public class UsersController {
 	}
 
 	public List<Users> getListUser() throws SQLException {
-		return iUsersService.getListUser();
+		if (iUsersService.getListUser().size() > 0) {
+			return iUsersService.getListUser();
+		} else {
+			System.out.println("List is empty !\n");
+			return null;
+		}
 	}
 	
 	public boolean insertUser(String username, String password, int departmentId) throws Exception {
@@ -37,7 +42,11 @@ public class UsersController {
 		return iUsersService.insertUser(username, password, departmentId);
 	}
 	
-	public boolean updatePassword(int idTemp, String newPass) throws SQLException {
+	public Users getUserByCol(String arg) throws SQLException, Exception {
+		return iUsersService.getUserByCol(arg);
+	}
+	
+	public boolean updatePassword(int idTemp, String newPass) throws Exception {
 		if (newPass.length() < 6) {
 			System.out.println("Password must more than 6 characters !\n");
 			return false;
@@ -45,7 +54,7 @@ public class UsersController {
 		return iUsersService.updatePassword(idTemp, newPass);
 	}
 	
-	public boolean deleteUserById(int id) throws SQLException {
+	public boolean deleteUserById(int id) throws Exception {
 		return iUsersService.deleteUserById(id);
 	}
 }

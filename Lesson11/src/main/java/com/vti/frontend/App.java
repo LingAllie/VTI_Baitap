@@ -44,7 +44,7 @@ public class App {
 						String password = ScannerUtils.inputName("Nhập password: ");
 						int departmentId = ScannerUtils.inputId("Nhập department id: ");
 						try {
-							if (departmentController.getDepartment(departmentId) != null) {
+							if (departmentController.getDepartmentByCol(String.valueOf(departmentId)) != null) {
 								if (usersController.insertUser(username, password, departmentId)) {
 									System.out.println("Insert user successfully !");
 								}
@@ -101,8 +101,18 @@ public class App {
 							System.out.println(d.toString());
 						}
 						break;
-
+						
 					case 9:
+						String arg = ScannerUtils.inputName("Enter id/ username for searching: ");
+						System.out.println(usersController.getUserByCol(arg).toString());
+						break;
+					
+					case 10:
+						arg = ScannerUtils.inputName("Enter id/ department_name for searching: ");
+						System.out.println(departmentController.getDepartmentByCol(arg).toString());;
+						break;
+						
+					case 11:
 						loginStatus = false;
 						System.out.println("Log out successfully !\n");
 						break;
@@ -141,7 +151,9 @@ public class App {
 		System.out.println("6. Delete Department by id");
 		System.out.println("7. View list of Users");
 		System.out.println("8. View list of Departments");
-		System.out.println("9. Log out");
+		System.out.println("9. Find user by id/ username");
+		System.out.println("10. Find department by id/ department_name");
+		System.out.println("11. Log out");
 		System.out.println("\n //---------- ~.~ -----------//");
 
 	}

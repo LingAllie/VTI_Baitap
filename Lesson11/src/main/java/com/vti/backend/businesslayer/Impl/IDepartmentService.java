@@ -11,9 +11,9 @@ public interface IDepartmentService {
 	
 	public abstract boolean insertDepartment(String depName) throws SQLException, Exception;
 	
-	public abstract Department getDepartment(int idTemp) throws SQLException;
+	public abstract Department getDepartmentByCol(String arg) throws SQLException, Exception;
 	
-	public abstract boolean updateName(int idTemp, String newName) throws SQLException;
+	public abstract boolean updateName(int idTemp, String newName) throws SQLException, Exception;
 	
-	public abstract boolean deleteDepartmentById(int id) throws SQLException;
+	public abstract boolean deleteDepartmentById(int id) throws SQLException, Exception;
 }

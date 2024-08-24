@@ -36,7 +36,7 @@ public class UsersRepository implements IUserRepository{
 				String username = rs.getString("username");
 				String password = rs.getString("password");
 				int depId = rs.getInt("department_id");
-				Users u = new Users(id, username, password, iDepartmentRepository.getDepartment(depId));
+				Users u = new Users(id, username, password, iDepartmentRepository.getDepartmentByCol(String.valueOf(depId)));
 				lstUser.add(u);
 			}
 		} catch (Exception e) {
@@ -80,9 +80,10 @@ public class UsersRepository implements IUserRepository{
 		boolean res = false;
 		try {
 			con = JdbcConnection.getConnection();
-			String sql = "UPDATE users SET password = ? WHERE user_id = " + idTemp;
+			String sql = "UPDATE users SET password = ? WHERE user_id = ?";
 			psmt = con.prepareStatement(sql);
 			psmt.setString(1, newPass);
+			psmt.setInt(2, idTemp);
 			int count = psmt.executeUpdate();
 			if (count > 0) {
 				res = true;
@@ -115,49 +116,6 @@ public class UsersRepository implements IUserRepository{
 		return res;
 	}
 
-	@Override
-	public boolean checkUsername(String username) throws SQLException {
-		Connection con = null;
-		PreparedStatement psmt = null;
-		ResultSet rs = null;
-		try {
-			con = JdbcConnection.getConnection();
-			String sql = "SELECT * FROM users WHERE username = ? ";
-			psmt = con.prepareStatement(sql);
-			psmt.setString(1, username);
-			rs = psmt.executeQuery();
-			if (rs.next()) {
-				return true;
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			JdbcConnection.closeConnection(con, psmt, rs);
-		}
-		return false;
-	}
-
-	@Override
-	public boolean checkNewPass(String newPass) throws SQLException {
-		Connection con = null;
-		PreparedStatement psmt = null;
-		ResultSet rs = null;
-		try {
-			con = JdbcConnection.getConnection();
-			String sql = "SELECT * FROM users WHERE password = ? ";
-			psmt = con.prepareStatement(sql);
-			psmt.setString(1, newPass);
-			rs = psmt.executeQuery();
-			if (rs.next()) {
-				return true;
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			JdbcConnection.closeConnection(con, psmt, rs);
-		}
-		return false;
-	}
 
 	@Override
 	public boolean login(String username, String password) throws SQLException {
@@ -183,6 +141,47 @@ public class UsersRepository implements IUserRepository{
 		System.out.println("Username or password incorrect ! Please try again !");
 		return false;
 	}
+
+	@Override
+	public Users getUserByCol(String arg) throws Exception {
+	    Connection con = null;
+	    PreparedStatement psmt = null;
+	    ResultSet rs = null;
+	    Users u = null;
+	    try {
+	        con = JdbcConnection.getConnection();
+	        String sql;
+	        boolean isNumeric = arg.matches("\\d+"); // Check if arg is a number
+	        if (isNumeric) {
+	            sql = "SELECT * FROM users WHERE user_id = ?";
+	            psmt = con.prepareStatement(sql);
+	            psmt.setInt(1, Integer.parseInt(arg));
+	        } else {
+	            sql = "SELECT * FROM users WHERE username = ? OR password = ?";
+	            psmt = con.prepareStatement(sql);
+	            psmt.setString(1, arg);
+	            psmt.setString(2, arg);
+	        }
+
+	        rs = psmt.executeQuery();
+	        if (rs.next()) {
+	            int id = rs.getInt("user_id");
+	            String username = rs.getString("username");
+	            String password = rs.getString("password");
+	            int depId = rs.getInt("department_id");
+
+	            u = new Users(id, username, password, iDepartmentRepository.getDepartmentByCol(String.valueOf(depId)));
+	        }
+	    } catch (SQLException e) {
+	        throw new Exception("Database error: " + e.getMessage(), e);
+	    } catch (NumberFormatException e) {
+	        throw new Exception("Invalid user ID: " + arg, e);
+	    } finally {
+	        JdbcConnection.closeConnection(con, psmt, rs);
+	    }
+	    return u;
+	}
+
 	
 	
 }

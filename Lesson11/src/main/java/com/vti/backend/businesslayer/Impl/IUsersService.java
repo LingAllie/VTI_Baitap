@@ -13,8 +13,10 @@ public interface IUsersService {
 	
 	public abstract boolean insertUser(String username, String password, int departmentId) throws SQLException, Exception;
 	
-	public abstract boolean updatePassword(int idTemp, String newPass) throws SQLException;
+	public abstract Users getUserByCol(String arg) throws SQLException, Exception;
 	
-	public abstract boolean deleteUserById(int id) throws SQLException;
+	public abstract boolean updatePassword(int idTemp, String newPass) throws SQLException, Exception;
+	
+	public abstract boolean deleteUserById(int id) throws SQLException, Exception;
 	
 }

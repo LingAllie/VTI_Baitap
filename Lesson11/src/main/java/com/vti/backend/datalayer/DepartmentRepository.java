@@ -38,31 +38,42 @@ public class DepartmentRepository implements IDepartmentRepository{
 	}
 	
 	
-	public Department getDepartment(int idTemp) throws SQLException {
+	public Department getDepartmentByCol(String arg) throws Exception {
+	    Connection con = null;
+	    PreparedStatement psmt = null;
+	    ResultSet rs = null;
+	    Department d = null;
+	    try {
+	        con = JdbcConnection.getConnection();
+	        String sql;
+	        boolean isNumeric = arg.matches("\\d+"); // Check if arg is a number
+	        if (isNumeric) {
+	            sql = "SELECT * FROM department WHERE department_id = ?";
+	            psmt = con.prepareStatement(sql);
+	            psmt.setInt(1, Integer.parseInt(arg));
+	        } else {
+	            sql = "SELECT * FROM department WHERE department_name = ?";
+	            psmt = con.prepareStatement(sql);
+	            psmt.setString(1, arg);
+	        }
 
-		Connection con = null;
-		PreparedStatement psmt = null;
-		ResultSet rs = null;
-		Department d = null;
-		try {
-			con = JdbcConnection.getConnection();
-			String sql = "SELECT * FROM department WHERE department_id = " + idTemp;
-			psmt = con.prepareStatement(sql);
-			rs = psmt.executeQuery();
-			while(rs.next()) {
-				int id = rs.getInt("department_id");
-				String depName = rs.getString("department_name");
-				d = new Department(id, depName);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			JdbcConnection.closeConnection(con, psmt, rs);
-		}
-		return d;
+	        rs = psmt.executeQuery();
+	        if (rs.next()) {
+	            int id = rs.getInt("department_id");
+	            String depName = rs.getString("department_name");
+	            d = new Department(id, depName);
+	        }
+	    } catch (SQLException e) {
+	        throw new Exception("Database error: " + e.getMessage(), e);
+	    } catch (NumberFormatException e) {
+	        throw new Exception("Invalid department ID: " + arg, e);
+	    } finally {
+	        JdbcConnection.closeConnection(con, psmt, rs);
+	    }
+	    return d;
 	}
 
-	
+
 	public boolean insertDepartment(String depName) throws Exception {
 		Connection con = null;
 		PreparedStatement psmt = null;
@@ -94,9 +105,10 @@ public class DepartmentRepository implements IDepartmentRepository{
 		boolean res = false;
 		try {
 			con = JdbcConnection.getConnection();
-			String sql = "UPDATE department SET department_name = ? WHERE department_id = " + idTemp;
+			String sql = "UPDATE department SET department_name = ? WHERE department_id = ?";
 			psmt = con.prepareStatement(sql);
 			psmt.setString(1, newName);
+			psmt.setInt(2, idTemp);
 			int count = psmt.executeUpdate();
 			if (count > 0) {
 				res = true;
@@ -115,8 +127,9 @@ public class DepartmentRepository implements IDepartmentRepository{
 		boolean res = false;
 		try {
 			con = JdbcConnection.getConnection();;
-			String sql = "DELETE FROM department WHERE department_id = " + id;
+			String sql = "DELETE FROM department WHERE department_id = ?";
 			psmt = con.prepareStatement(sql);
+			psmt.setInt(1, id);
 			int count = psmt.executeUpdate();
 			if (count > 0) {
 				res = true;
@@ -130,25 +143,4 @@ public class DepartmentRepository implements IDepartmentRepository{
 	}
 
 
-	@Override
-	public boolean checkDepartmentName(String depName) throws SQLException {
-		Connection con = null;
-		PreparedStatement psmt = null;
-		ResultSet rs = null;
-		try {
-			con = JdbcConnection.getConnection();
-			String sql = "SELECT * FROM department WHERE department_id = ? ";
-			psmt = con.prepareStatement(sql);
-			psmt.setString(1, depName);
-			rs = psmt.executeQuery();
-			if (rs.next()) {
-				return true;
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			JdbcConnection.closeConnection(con, psmt, rs);
-		}
-		return false;
-	}
 }

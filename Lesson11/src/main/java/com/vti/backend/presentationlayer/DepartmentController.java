@@ -16,22 +16,27 @@ public class DepartmentController {
 	}
 
 	public List<Department> getListDepartment() throws SQLException {
-		return iDepartmentService.getListDepartment();
+		if(iDepartmentService.getListDepartment().size() > 0) {
+			return iDepartmentService.getListDepartment();
+		} else {
+			System.out.println("List is empty !");
+			return null;
+		}
 	}
 	
 	public boolean insertDepartment(String depName) throws Exception {
 		return iDepartmentService.insertDepartment(depName);
 	}
 	
-	public Department getDepartment(int idTemp) throws SQLException {
-		return iDepartmentService.getDepartment(idTemp);
+	public Department getDepartmentByCol(String arg) throws Exception {
+		return iDepartmentService.getDepartmentByCol(arg);
 	}
 	
-	public boolean updateName(int idTemp, String newName) throws SQLException{
+	public boolean updateName(int idTemp, String newName) throws Exception{
 		return iDepartmentService.updateName(idTemp, newName);
 	}
 	
-	public boolean deleteDepartmentById(int id) throws SQLException {
+	public boolean deleteDepartmentById(int id) throws Exception {
 		return iDepartmentService.deleteDepartmentById(id);
 	}
 }
