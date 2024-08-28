@@ -16,7 +16,7 @@ public class JdbcConnection {
 
 	public static Connection getConnection() throws SQLException, FileNotFoundException, IOException {
 		Properties pr = new Properties();
-		pr.load(new FileInputStream(new File("src\\main\\resource\\database.properties")));
+		pr.load(new FileInputStream(new File("D:/VTI_Baitap/Lesson11/src/main/resource/database.properties")));
 		String url = pr.getProperty("url");
 		String username = pr.getProperty("username");
 		String password = pr.getProperty("password");

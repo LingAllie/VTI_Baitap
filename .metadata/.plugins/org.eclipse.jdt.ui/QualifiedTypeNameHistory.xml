@@ -22,14 +22,14 @@
     <fullyQualifiedTypeName name="java.sql.ResultSet"/>
     <fullyQualifiedTypeName name="com.vti.entity.Users"/>
     <fullyQualifiedTypeName name="com.vti.backend.presentationlayer.UsersController"/>
-    <fullyQualifiedTypeName name="com.vti.utils.JdbcConnection"/>
-    <fullyQualifiedTypeName name="com.vti.utils.ScannerUtils"/>
     <fullyQualifiedTypeName name="com.sun.tools.javac.util.List"/>
     <fullyQualifiedTypeName name="com.vti.backend.presentationlayer.DepartmentController"/>
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="com.vti.backend.datalayer.UsersRepository"/>
     <fullyQualifiedTypeName name="com.vti.backend.businesslayer.UsersService"/>
     <fullyQualifiedTypeName name="com.vti.backend.businesslayer.DepartmentService"/>
-    <fullyQualifiedTypeName name="com.vti.backend.datalayer.DepartmentRepository"/>
     <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="com.vti.backend.datalayer.DepartmentRepository"/>
+    <fullyQualifiedTypeName name="com.vti.utils.ScannerUtils"/>
+    <fullyQualifiedTypeName name="com.vti.utils.JdbcConnection"/>
 </qualifiedTypeNameHistroy>
