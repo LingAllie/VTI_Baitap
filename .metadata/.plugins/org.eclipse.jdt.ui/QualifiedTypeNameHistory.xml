@@ -32,4 +32,9 @@
     <fullyQualifiedTypeName name="com.vti.backend.datalayer.DepartmentRepository"/>
     <fullyQualifiedTypeName name="com.vti.utils.ScannerUtils"/>
     <fullyQualifiedTypeName name="com.vti.utils.JdbcConnection"/>
+    <fullyQualifiedTypeName name="java.lang.StringIndexOutOfBoundsException"/>
+    <fullyQualifiedTypeName name="com.vti.backend.businesslayer.ManagerService"/>
+    <fullyQualifiedTypeName name="com.vti.backend.datalayer.Impl.IManagerRepository"/>
+    <fullyQualifiedTypeName name="java.util.regex.Pattern"/>
+    <fullyQualifiedTypeName name="com.vti.backend.presentationlayer.UserController"/>
 </qualifiedTypeNameHistroy>

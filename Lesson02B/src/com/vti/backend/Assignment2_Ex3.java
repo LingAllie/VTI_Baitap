@@ -23,7 +23,16 @@ public class Assignment2_Ex3 {
 		
 
 //		// Ex3.2
-		tinhGiaiThua();
+//		tinhGiaiThua();
+		String a = "I'm a boss";
+
+	    String b = "I'm a boss.";
+
+	    if (a == b) {
+	        System.out.println("a = b");
+	    } else {
+	        System.out.println("a khac b");
+	    }
 
 	}
 

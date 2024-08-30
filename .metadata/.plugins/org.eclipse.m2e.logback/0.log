@@ -1698,3 +1698,226 @@ org.apache.maven.project.ProjectBuildingException: Some problems were encountere
 2024-08-29 01:56:06,825 [Worker-70: Launching App (3)] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\Exam\src\test\resources
 2024-08-29 01:58:34,084 [Worker-70: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\Exam\src\main\resources
 2024-08-29 01:58:34,086 [Worker-70: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\Exam\src\test\resources
+2024-08-29 23:06:03,727 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-08-30 19:16:22,368 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-08-30 19:25:34,869 [Worker-9: Launching App (3)] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\Exam\src\main\resources
+2024-08-30 19:25:34,874 [Worker-9: Launching App (3)] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\Exam\src\test\resources
+2024-08-30 19:29:01,839 [Worker-49: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\Exam\src\main\resources
+2024-08-30 19:29:01,841 [Worker-49: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\Exam\src\test\resources
+2024-08-30 19:49:13,773 [Worker-55: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.vti:Practice:0.0.1-SNAPSHOT @ D:\VTI_Baitap\FinalExam\pom.xml.
+2024-08-30 19:49:13,833 [Worker-55: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 19:49:13,835 [Worker-55: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 19:49:14,108 [Worker-57: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 19:49:14,113 [Worker-57: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 19:49:14,482 [Worker-57: Updating Maven Dependencies] ERROR o.e.m.j.i.l.MavenLaunchConfigurationListener - Launch configuration App (3) references non-existing project Exam.
+org.eclipse.core.runtime.CoreException: Launch configuration App (3) references non-existing project Exam.
+	at org.eclipse.jdt.launching.JavaRuntime.abort(JavaRuntime.java:1867)
+	at org.eclipse.jdt.launching.JavaRuntime.getJavaProject(JavaRuntime.java:1744)
+	at org.eclipse.m2e.jdt.internal.launch.MavenLaunchConfigurationListener.updateLaunchConfiguration(MavenLaunchConfigurationListener.java:64)
+	at org.eclipse.m2e.jdt.internal.launch.MavenLaunchConfigurationListener.launchConfigurationChanged(MavenLaunchConfigurationListener.java:50)
+	at org.eclipse.debug.internal.core.LaunchManager$ConfigurationNotifier.run(LaunchManager.java:220)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.debug.internal.core.LaunchManager$ConfigurationNotifier.notify(LaunchManager.java:204)
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.setDirty(LaunchConfigurationWorkingCopy.java:527)
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.setAttribute(LaunchConfigurationWorkingCopy.java:415)
+	at org.eclipse.m2e.jdt.internal.launch.MavenRuntimeClasspathProvider.disable(MavenRuntimeClasspathProvider.java:409)
+	at org.eclipse.m2e.jdt.internal.launch.MavenRuntimeClasspathProvider.disable(MavenRuntimeClasspathProvider.java:435)
+	at org.eclipse.m2e.jdt.internal.launch.MavenLaunchConfigurationListener.mavenProjectChanged(MavenLaunchConfigurationListener.java:135)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.notifyProjectChangeListeners(ProjectRegistryManager.java:892)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.applyMutableProjectRegistry(ProjectRegistryManager.java:1042)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryRefreshJob.lambda$0(ProjectRegistryRefreshJob.java:162)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:458)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:339)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:278)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryRefreshJob.run(ProjectRegistryRefreshJob.java:106)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+2024-08-30 19:49:14,491 [Worker-57: Updating Maven Dependencies] ERROR o.e.m.j.i.l.MavenLaunchConfigurationListener - Launch configuration App (3) references non-existing project Exam.
+org.eclipse.core.runtime.CoreException: Launch configuration App (3) references non-existing project Exam.
+	at org.eclipse.jdt.launching.JavaRuntime.abort(JavaRuntime.java:1867)
+	at org.eclipse.jdt.launching.JavaRuntime.getJavaProject(JavaRuntime.java:1744)
+	at org.eclipse.m2e.jdt.internal.launch.MavenLaunchConfigurationListener.updateLaunchConfiguration(MavenLaunchConfigurationListener.java:64)
+	at org.eclipse.m2e.jdt.internal.launch.MavenLaunchConfigurationListener.launchConfigurationChanged(MavenLaunchConfigurationListener.java:50)
+	at org.eclipse.debug.internal.core.LaunchManager$ConfigurationNotifier.run(LaunchManager.java:220)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.debug.internal.core.LaunchManager$ConfigurationNotifier.notify(LaunchManager.java:204)
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.setDirty(LaunchConfigurationWorkingCopy.java:527)
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.setAttribute(LaunchConfigurationWorkingCopy.java:415)
+	at org.eclipse.m2e.jdt.internal.launch.MavenRuntimeClasspathProvider.disable(MavenRuntimeClasspathProvider.java:410)
+	at org.eclipse.m2e.jdt.internal.launch.MavenRuntimeClasspathProvider.disable(MavenRuntimeClasspathProvider.java:435)
+	at org.eclipse.m2e.jdt.internal.launch.MavenLaunchConfigurationListener.mavenProjectChanged(MavenLaunchConfigurationListener.java:135)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.notifyProjectChangeListeners(ProjectRegistryManager.java:892)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.applyMutableProjectRegistry(ProjectRegistryManager.java:1042)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryRefreshJob.lambda$0(ProjectRegistryRefreshJob.java:162)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:458)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:339)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:278)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryRefreshJob.run(ProjectRegistryRefreshJob.java:106)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+2024-08-30 19:49:14,506 [Worker-57: Updating Maven Dependencies] ERROR o.e.m.j.i.l.MavenLaunchConfigurationListener - Launch configuration App (3) references non-existing project Exam.
+org.eclipse.core.runtime.CoreException: Launch configuration App (3) references non-existing project Exam.
+	at org.eclipse.jdt.launching.JavaRuntime.abort(JavaRuntime.java:1867)
+	at org.eclipse.jdt.launching.JavaRuntime.getJavaProject(JavaRuntime.java:1744)
+	at org.eclipse.m2e.jdt.internal.launch.MavenLaunchConfigurationListener.updateLaunchConfiguration(MavenLaunchConfigurationListener.java:64)
+	at org.eclipse.m2e.jdt.internal.launch.MavenLaunchConfigurationListener.launchConfigurationChanged(MavenLaunchConfigurationListener.java:50)
+	at org.eclipse.debug.internal.core.LaunchManager$ConfigurationNotifier.run(LaunchManager.java:220)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.debug.internal.core.LaunchManager$ConfigurationNotifier.notify(LaunchManager.java:204)
+	at org.eclipse.debug.internal.core.LaunchManager.launchConfigurationChanged(LaunchManager.java:2010)
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.writeNewFile(LaunchConfigurationWorkingCopy.java:380)
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.doSave0(LaunchConfigurationWorkingCopy.java:259)
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.doSave(LaunchConfigurationWorkingCopy.java:229)
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.doSave(LaunchConfigurationWorkingCopy.java:187)
+	at org.eclipse.m2e.jdt.internal.launch.MavenRuntimeClasspathProvider.disable(MavenRuntimeClasspathProvider.java:411)
+	at org.eclipse.m2e.jdt.internal.launch.MavenRuntimeClasspathProvider.disable(MavenRuntimeClasspathProvider.java:435)
+	at org.eclipse.m2e.jdt.internal.launch.MavenLaunchConfigurationListener.mavenProjectChanged(MavenLaunchConfigurationListener.java:135)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.notifyProjectChangeListeners(ProjectRegistryManager.java:892)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.applyMutableProjectRegistry(ProjectRegistryManager.java:1042)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryRefreshJob.lambda$0(ProjectRegistryRefreshJob.java:162)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:458)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:339)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:278)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryRefreshJob.run(ProjectRegistryRefreshJob.java:106)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+2024-08-30 20:39:53,854 [Worker-69: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 20:39:53,857 [Worker-69: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 20:40:02,093 [Worker-67: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 20:40:02,095 [Worker-67: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 20:43:15,936 [Worker-69: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 20:43:15,938 [Worker-69: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 20:47:07,961 [Worker-67: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 20:47:07,964 [Worker-67: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 20:47:48,445 [Worker-74: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 20:47:48,449 [Worker-74: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 20:48:17,274 [Worker-75: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 20:48:17,275 [Worker-75: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 20:48:25,219 [Worker-67: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 20:48:25,222 [Worker-67: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 20:53:27,859 [Worker-79: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 20:53:27,862 [Worker-79: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 20:55:49,633 [Worker-80: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 20:55:49,635 [Worker-80: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 21:04:01,510 [Worker-82: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 21:04:01,511 [Worker-82: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 21:07:38,642 [Worker-84: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 21:07:38,644 [Worker-84: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 21:19:52,766 [Worker-85: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 21:19:52,768 [Worker-85: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 21:24:19,174 [Worker-85: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 21:24:19,177 [Worker-85: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 21:24:41,536 [Worker-85: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 21:24:41,537 [Worker-85: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 21:28:59,730 [Worker-82: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 21:28:59,733 [Worker-82: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 21:29:45,360 [Worker-85: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 21:29:45,362 [Worker-85: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 21:40:27,410 [Worker-85: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 21:40:27,412 [Worker-85: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 21:42:00,210 [Worker-92: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 21:42:00,213 [Worker-92: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 21:42:17,800 [Worker-85: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 21:42:17,802 [Worker-85: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 21:43:15,043 [Worker-94: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 21:43:15,046 [Worker-94: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 21:43:26,753 [Worker-95: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 21:43:26,756 [Worker-95: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 21:47:31,915 [Worker-85: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 21:47:31,917 [Worker-85: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 21:48:06,130 [Worker-85: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 21:48:06,131 [Worker-85: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 21:48:15,064 [Worker-95: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 21:48:15,065 [Worker-95: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 21:48:25,315 [Worker-95: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 21:48:25,316 [Worker-95: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 21:48:30,402 [Worker-95: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 21:48:30,403 [Worker-95: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 21:48:39,677 [Worker-95: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 21:48:39,678 [Worker-95: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 21:48:44,124 [Worker-96: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 21:48:44,125 [Worker-96: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 21:48:54,610 [Worker-93: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 21:48:54,611 [Worker-93: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 21:48:58,935 [Worker-97: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 21:48:58,939 [Worker-97: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 21:49:07,162 [Worker-95: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 21:49:07,164 [Worker-95: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 21:49:20,434 [Worker-85: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 21:49:20,435 [Worker-85: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 21:49:29,751 [Worker-93: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 21:49:29,752 [Worker-93: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 21:49:38,279 [Worker-98: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 21:49:38,282 [Worker-98: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 21:49:42,163 [Worker-93: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 21:49:42,165 [Worker-93: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 21:50:21,582 [Worker-95: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 21:50:21,583 [Worker-95: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 21:52:14,129 [Worker-93: Launching App (4)] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 21:52:14,130 [Worker-93: Launching App (4)] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 21:53:51,562 [Worker-85: Launching App (4)] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 21:53:51,564 [Worker-85: Launching App (4)] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 21:54:08,930 [Worker-95: Launching App (4)] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 21:54:08,938 [Worker-95: Launching App (4)] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 21:56:14,920 [Worker-100: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 21:56:14,921 [Worker-100: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 21:57:04,409 [Worker-97: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 21:57:04,410 [Worker-97: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 21:58:41,046 [Worker-85: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 21:58:41,047 [Worker-85: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 21:58:53,911 [Worker-102: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 21:58:53,915 [Worker-102: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 21:59:46,239 [Worker-101: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 21:59:46,240 [Worker-101: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 21:59:52,189 [Worker-100: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 21:59:52,190 [Worker-100: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 22:01:27,946 [Worker-85: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 22:01:27,950 [Worker-85: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 22:04:28,773 [Worker-101: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 22:04:28,775 [Worker-101: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 22:04:42,408 [Worker-104: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 22:04:42,410 [Worker-104: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 22:05:34,166 [Worker-100: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 22:05:34,168 [Worker-100: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 22:05:47,915 [Worker-100: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 22:05:47,917 [Worker-100: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 22:06:14,130 [Worker-101: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 22:06:14,131 [Worker-101: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 22:06:38,227 [Worker-104: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 22:06:38,230 [Worker-104: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 22:06:53,451 [Worker-100: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 22:06:53,452 [Worker-100: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 22:06:56,549 [Worker-101: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 22:06:56,550 [Worker-101: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 22:07:07,930 [Worker-101: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 22:07:07,933 [Worker-101: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 22:07:45,528 [Worker-104: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 22:07:45,530 [Worker-104: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 22:07:55,561 [Worker-101: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 22:07:55,562 [Worker-101: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 22:08:08,811 [Worker-100: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 22:08:08,812 [Worker-100: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 22:08:45,067 [Worker-101: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 22:08:45,070 [Worker-101: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 22:11:32,646 [Worker-100: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 22:11:32,651 [Worker-100: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 22:12:23,495 [Worker-101: Launching App (4)] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 22:12:23,496 [Worker-101: Launching App (4)] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 22:12:59,347 [Worker-101: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 22:12:59,349 [Worker-101: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 22:13:52,167 [Worker-109: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 22:13:52,168 [Worker-109: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 22:14:49,476 [Worker-101: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 22:14:49,477 [Worker-101: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 22:16:05,218 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-08-30 22:30:19,206 [Worker-7: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-08-30 22:32:34,226 [Worker-3: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 22:32:34,229 [Worker-3: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 22:32:35,464 [Worker-3: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\Lesson11\src\main\resources
+2024-08-30 22:32:35,466 [Worker-3: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\Lesson11\src\test\resources
+2024-08-30 22:32:35,645 [Worker-3: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\MavenHW\src\main\resources
+2024-08-30 22:32:35,646 [Worker-3: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\MavenHW\src\test\resources
+2024-08-30 22:32:35,702 [Worker-3: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\MavenJDBC\src\main\resources
+2024-08-30 22:32:35,703 [Worker-3: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\MavenJDBC\src\test\resources
+2024-08-30 22:33:31,339 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 22:33:31,340 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 22:33:45,500 [Worker-8: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\main\resources
+2024-08-30 22:33:45,502 [Worker-8: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\VTI_Baitap\FinalExam\src\test\resources
+2024-08-30 22:49:23,197 [Worker-5: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
